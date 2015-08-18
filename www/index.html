@@ -19,25 +19,9 @@
 
 <body ng-app="Musplay" ng-controller="MainController">
 
-    <ons-sliding-menu menu-page="menu.html" main-page="page1.html" side="left" var="menu" type="reveal" max-slide-distance="260px"
-    swipeable="true">
+    <ons-sliding-menu menu-page="sideMenu.html" main-page="mainContainer.html" side="left" var="menu" type="reveal" max-slide-distance="260px"
+    swipeable="true" post-push="viewLoaded">
     </ons-sliding-menu>
-
-    <ons-template id="menu.html">
-
-    </ons-template>
-
-    <ons-template id="page1.html">
-        <ons-page>
-            <ons-toolbar>
-
-            </ons-toolbar>
-
-            <ons-row style="margin-top: 100px; text-align: center;">
-
-            </ons-row>
-        </ons-page>
-    </ons-template>
 </body>
 
 </html>

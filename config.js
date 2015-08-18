@@ -150,6 +150,8 @@ module.exports = function(config) {
   config.vendor.css.push('./bower_components/onsenui/build/css/onsenui.css');
   config.vendor.css.push('./bower_components/onsenui/build/css/onsen-css-components-blue-basic-theme.css');
   config.vendor.css.push('./bower_components/angular/angular-csp.css');
+  config.vendor.css.push('./bower_components/onsenui/build/css/ionicons/css/ionicons.css');
+  config.vendor.fonts.push('./bower_components/onsenui/build/css/ionicons/fonts/ionicons.*');
 
   /**
    * Vendor Css (appended on compile time)

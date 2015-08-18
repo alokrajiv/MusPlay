@@ -26,6 +26,8 @@ var config = {
     ],
 
     css: [],
+    
+    icons : [],
 
     fonts: [
       './bower_components/font-awesome/fonts/fontawesome-webfont.*'
@@ -69,7 +71,6 @@ var gulp           = require('gulp'),
     order          = require('gulp-order'),
     concat         = require('gulp-concat'),
     ignore         = require('gulp-ignore'),
-    rimraf         = require('gulp-rimraf'),
     templateCache  = require('gulp-angular-templatecache'),
     mobilizer      = require('gulp-mobilizer'),
     ngAnnotate     = require('gulp-ng-annotate'),
@@ -77,9 +78,9 @@ var gulp           = require('gulp'),
     ngFilesort     = require('gulp-angular-filesort'),
     streamqueue    = require('streamqueue'),
     rename         = require('gulp-rename'),
-    path           = require('path');
-
-var concatCss = require('gulp-concat-css');
+    path           = require('path'),
+    del            = require('del'),
+    concatCss      = require('gulp-concat-css');
  
 
 
@@ -97,14 +98,9 @@ gulp.on('error', function(e) {
 =========================================*/
 
 gulp.task('clean', function (cb) {
-  return gulp.src([
-        path.join(config.dest, 'index.html'),
-        path.join(config.dest, 'images'),
-        path.join(config.dest, 'css'),
-        path.join(config.dest, 'js'),
-        path.join(config.dest, 'fonts')
-      ], { read: false })
-     .pipe(rimraf());
+  del([
+    path.join(config.dest, '/**/*')
+  ], cb);
 });
 
 
@@ -151,6 +147,7 @@ gulp.task('images', function () {
 ==================================*/
 
 gulp.task('fonts', function() {
+  console.log(config.vendor.fonts);
   return gulp.src(config.vendor.fonts)
   .pipe(gulp.dest(path.join(config.dest, 'fonts')));
 });
@@ -201,7 +198,7 @@ gulp.task('less', function () {
 
 gulp.task('css', function () {
   return gulp.src(config.vendor.css)
-    .pipe(concatCss("bundle.css"))
+    .pipe(concatCss("bundle.css" ,{rebaseUrls:false})) //rebase caused errors!
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(path.join(config.dest, 'css')));
@@ -215,7 +212,6 @@ gulp.task('css', function () {
 // - Precompile templates to ng templateCache
 
 gulp.task('js', function() {
-    console.log(config.vendor.js);
     streamqueue({ objectMode: true },
       gulp.src(config.vendor.js),
       gulp.src('./src/js/**/*.js').pipe(ngFilesort()),
@@ -239,10 +235,10 @@ gulp.task('watch', function () {
   if (typeof config.server === 'object') {
     gulp.watch([config.dest + '/**/*'], ['livereload']);
   }
-  gulp.watch(['./src/html/**/*'], ['html']);
-  gulp.watch(['./src/less/**/*'], ['less']);
+//  gulp.watch(['./src/html/**/*'], ['html']);
+ // gulp.watch(['./src/less/**/*'], ['less']);
   gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
-  gulp.watch(['./src/images/**/*'], ['images']);
+ // gulp.watch(['./src/images/**/*'], ['images']);
 });
 
 

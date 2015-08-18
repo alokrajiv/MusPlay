@@ -1,0 +1,33 @@
+<ons-page ng-controller="detailViewController">
+  <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button ng-click="menu.toggle()">
+        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    <div class="center">Page 2</div>
+  </ons-toolbar>
+
+  <ons-row style="margin: 10px 0; text-align: center;">
+    <ons-col>
+      <ons-button ng-click="navToView('testView')">
+        Go to TestView
+      </ons-button>
+    </ons-col>
+    <ons-col>
+      <ons-button ng-click="attack()">
+        Search & Load Data
+      </ons-button>
+    </ons-col>
+  </ons-row>
+  <ons-list>
+    <ons-list-header>Header Text</ons-list-header>
+    <ons-list-item ng-repeat="one in moosaData track by $index">{{one}}</ons-list-item>
+    <ons-list-item>Two</ons-list-item>
+    <ons-list-item>Three</ons-list-item>
+    <ons-list-item>Four</ons-list-item>
+    <ons-list-item>Five</ons-list-item>
+    <ons-list-item>Six</ons-list-item>
+  </ons-list>
+  </ons-col>
+</ons-page>
