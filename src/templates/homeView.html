@@ -1,20 +1,31 @@
-  <span ng-controller="detailViewController">
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button ng-click="menu.toggle()">
-          <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">Page 1</div>
-    </ons-toolbar>
-  
-    <ons-row style="margin-top: 100px; text-align: center;">
-      <ons-col>
-        <ons-button ng-click="navToView('detailView')">
-          Go to DetailView
-        </ons-button>
-        <p style="color: #999; font-size: 13px;">Click "Toggle Menu" to close/open menu,
-          <br> You can also swipe the page left/right.</p>
-      </ons-col>
-    </ons-row>
-  </span>
+<span ng-controller="homeViewController">
+  <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button ng-click="menu.toggle()">
+        <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    <div class="center">Page 2</div>
+  </ons-toolbar>
+
+  <ons-row style="margin: 10px 0; text-align: center;">
+    <ons-col>
+      <ons-button ng-click="navToView('detailView')">
+        Go to TestView
+      </ons-button>
+    </ons-col>
+    <ons-col>
+      <ons-button ng-click="cacheData()">
+        Search & Load Data
+      </ons-button>
+    </ons-col>
+  </ons-row>
+  <ons-scroller>
+  <ons-list style="width: 100%;word-wrap: break-word;">
+    <ons-list-header>Header Text @ {{dataLoadStatus}}</ons-list-header>
+    <ons-list-item modifier="tappable" ng-repeat="one in moosaData track by $index">
+      <span ng-click="playSong(one.name, one.path)">{{one.name}}</span>
+    </ons-list-item>
+  </ons-list>
+  </ons-scroller>
+</span>

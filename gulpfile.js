@@ -235,10 +235,10 @@ gulp.task('watch', function () {
   if (typeof config.server === 'object') {
     gulp.watch([config.dest + '/**/*'], ['livereload']);
   }
-//  gulp.watch(['./src/html/**/*'], ['html']);
- // gulp.watch(['./src/less/**/*'], ['less']);
+  gulp.watch(['./src/html/**/*'], ['html']);
+  gulp.watch(['./src/less/**/*'], ['less']);
   gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
- // gulp.watch(['./src/images/**/*'], ['images']);
+  gulp.watch(['./src/images/**/*'], ['images']);
 });
 
 
