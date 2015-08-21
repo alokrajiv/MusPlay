@@ -11,7 +11,7 @@
   <ons-row style="margin: 10px 0; text-align: center;">
     <ons-col>
       <ons-button ng-click="navToView('detailView')">
-        Go to TestView
+        Go to Player
       </ons-button>
     </ons-col>
     <ons-col>
@@ -20,12 +20,28 @@
       </ons-button>
     </ons-col>
   </ons-row>
-  <ons-scroller>
+  <input type="search" class="search-input" ng-model="search_phrase">
   <ons-list style="width: 100%;word-wrap: break-word;">
-    <ons-list-header>Header Text @ {{dataLoadStatus}}</ons-list-header>
-    <ons-list-item modifier="tappable" ng-repeat="one in moosaData track by $index">
-      <span ng-click="playSong(one.name, one.path)">{{one.name}}</span>
-    </ons-list-item>
-  </ons-list>
-  </ons-scroller>
+    <ons-list-header>Song List of {{dataLoadStatus}}</ons-list-header>
+    <ons-scroller>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+      <ons-list-item>Moosa Kuttan</ons-list-item>
+    </ons-scroller>
+</ons-list>
 </span>

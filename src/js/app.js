@@ -3,7 +3,7 @@ angular.module('Musplay', [
   'onsen',
   'ngRoute',
   'mobile-angular-ui',
-  'Musplay.controllers.Main'
+  'Musplay.controllers'
 ])
 
 /*
