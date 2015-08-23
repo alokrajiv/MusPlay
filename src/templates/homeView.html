@@ -5,13 +5,13 @@
         <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
       </ons-toolbar-button>
     </div>
-    <div class="center">Page 2</div>
+    <div class="center">MUSIC LIST</div>
   </ons-toolbar>
 
   <ons-row style="margin: 10px 0; text-align: center;">
     <ons-col>
-      <ons-button ng-click="navToView('detailView')">
-        Go to Player
+      <ons-button ng-click="navToView('player')">
+        Go to TestView
       </ons-button>
     </ons-col>
     <ons-col>
@@ -21,27 +21,12 @@
     </ons-col>
   </ons-row>
   <input type="search" class="search-input" ng-model="search_phrase">
+  <ons-scroller>
   <ons-list style="width: 100%;word-wrap: break-word;">
-    <ons-list-header>Song List of {{dataLoadStatus}}</ons-list-header>
-    <ons-scroller>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-      <ons-list-item>Moosa Kuttan</ons-list-item>
-    </ons-scroller>
-</ons-list>
+    <ons-list-header>Song List of {{moosaData.length}} {{dataLoadStatus}}</ons-list-header>
+    <ons-list-item modifier="tappable" ng-repeat="one in moosaData | filter: search_phrase | orderBy:'name' track by $index " ng-hi>
+      <span ng-click="playSong(one.name, one.path)">{{one.name}}</span>
+    </ons-list-item>
+  </ons-list>
+  </ons-scroller>
 </span>

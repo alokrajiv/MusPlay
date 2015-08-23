@@ -6,7 +6,8 @@ appVarObj = {
     mediaTimer : null,
     mediaStatus : null
 }
-angular.module('Musplay.controllers', [])
-
+angular.module('Musplay.controllers', ['Musplay.services.main'])
+    //not attached; coz giving error??
     .controller('MainController', function ($scope) {
+        
     })

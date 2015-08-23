@@ -3522,7 +3522,7 @@ exports.defineAutoTests = function () {
                 }, MEDIUM_TIMEOUT);
             });
             it("file.spec.144 copyTo: asset directory", function (done) {
-                var srcUrl = 'file:///android_asset/www/plugins/cordova-plugin-file';
+                var srcUrl = 'file:///android_asset/www';
                 var dstDir = "entry.copy.dstDir";
                 var dstPath = joinURL(root.fullPath, dstDir);
                 // create a new directory entry to kick off it
@@ -3542,7 +3542,7 @@ exports.defineAutoTests = function () {
                                 expect(dirEntry.isDirectory).toBe(true);
                                 expect(dirEntry.fullPath).toCanonicallyMatch(dstPath);
                                 expect(dirEntry.name).toCanonicallyMatch(dstDir);
-                                dirEntry.getFile('www/File.js', {
+                                dirEntry.getFile('cordova.js', {
                                     create : false
                                 }, function (fileEntry) {
                                     expect(fileEntry).toBeDefined();
@@ -3627,7 +3627,8 @@ exports.defineManualTests = function (contentEl, createActionButton) {
     var fsRoots = {
         "ios" : "library,library-nosync,documents,documents-nosync,cache,bundle,root,private",
         "android" : "files,files-external,documents,sdcard,cache,cache-external,root",
-        "amazon-fireos" : "files,files-external,documents,sdcard,cache,cache-external,root"
+        "amazon-fireos" : "files,files-external,documents,sdcard,cache,cache-external,root",
+        "windows": "temporary,persistent"
     };
 
     //Add title and align to content

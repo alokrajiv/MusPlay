@@ -170,7 +170,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-file": "2.1.0",
+    "cordova-plugin-file": "3.0.0",
     "cordova-plugin-media": "1.0.1"
 }
 // BOTTOM OF METADATA
