@@ -1,0 +1,26 @@
+<span ng-controller="playerViewController">
+    <ons-toolbar>
+      <div class="left">
+        <ons-toolbar-button ng-click="menu.toggle()">
+          <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+        </ons-toolbar-button>
+      </div>
+      <div class="center">PLAYER</div>
+    </ons-toolbar>
+    <div class="center" style="padding:10%">
+        {{currentSong.name}}<br>
+        <ons-button ng-click="audioCtrls.stopAudio()">
+            <i class="icon ion-ios-skipbackward"></i>
+        </ons-button>
+        <ons-button ng-click="audioCtrls.playToggle()">
+            <i class="icon ion-play" ng-show="mediaStatusEasy === 0"></i>&nbsp;<i class="icon ion-pause" ng-show="mediaStatusEasy === 1"></i>
+        </ons-button>
+        <ons-button ng-click="audioCtrls.stopAudio()">
+            <i class="icon ion-stop"></i>
+        </ons-button>
+        <ons-button ng-click="audioCtrls.stopAudio()">
+            <i class="icon ion-ios-skipforward"></i>
+        </ons-button>
+        <rzslider rz-slider-model="priceSlider.value" rz-slider-floor="priceSlider.floor" rz-slider-ceil="priceSlider.ceil"></rzslider>
+    </div>
+</span>

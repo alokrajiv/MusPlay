@@ -1,12 +1,14 @@
 <ons-page ng-controller="AppController">
 	<ons-tabbar var="mainViewNavigator">
 		<ons-tab page="homeView.html" label="Song-List" icon="ion-ios-list" active="true" persistent=""></ons-tab>
-		<ons-button ng-click="audioCtrls.playToggle()">
-          <i class="icon ion-play" ng-show="mediaStatusEasy === 0"></i>&nbsp;<i class="icon ion-pause" ng-show="mediaStatusEasy === 1"></i>
-        </ons-button>
-		<ons-button ng-click="audioCtrls.stopAudio()">
-          <i class="icon ion-stop"></i>
-        </ons-button>
-		<ons-tab page="detailView.html" label="Player" icon="ion-ipod" persistent=""></ons-tab>
+		<div class="center" >
+			<ons-button ng-click="audioCtrls.playToggle()">
+				<i class="icon ion-play" ng-show="mediaStatusEasy === 0"></i>&nbsp;<i class="icon ion-pause" ng-show="mediaStatusEasy === 1"></i>
+			</ons-button>
+			<ons-button ng-click="audioCtrls.stopAudio()">
+				<i class="icon ion-stop"></i>
+			</ons-button>
+		</div>
+		<ons-tab page="playerView.html" label="Player" icon="ion-ipod" persistent=""></ons-tab>
 	</ons-tabbar>
 </ons-page>

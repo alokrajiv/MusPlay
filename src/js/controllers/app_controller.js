@@ -1,3 +1,5 @@
+/* global appVarObj */
+/* global ons */
 /* global Media */
 angular.module('Musplay.controllers')
 
@@ -45,6 +47,7 @@ angular.module('Musplay.controllers')
                     });
                 });
                 // Play audio
+                
                 audioTools.playAudio();
             },
             playAudio: function () {
@@ -57,7 +60,7 @@ angular.module('Musplay.controllers')
                                 function (position) {
                                     if (position > -1) {
                                         $timeout(function () {
-                                            audioTools.setAudioPosition((position) + " sec");
+                                            audioTools.setAudioPosition((position));
                                         });
 
                                     }
@@ -83,10 +86,14 @@ angular.module('Musplay.controllers')
                 }
                 clearInterval(appVarObj.mediaTimer);
                 appVarObj.mediaTimer = null;
-                audioTools.setAudioPosition("0 sec")
+                $scope.priceSlider.value = 0;
+                audioTools.setAudioPosition(0);
             },
             onSuccess: function () {
-                console.log("playAudio():Audio Success");
+                $timeout(function () {
+                    $scope.mediaDur = appVarObj.my_media.getDuration();
+                    console.log("playAudio():Audio Success " + $scope.mediaDur);
+                });
             },
             onError: function (error) {
                 alert('code: ' + error.code + '\n' +
@@ -95,6 +102,8 @@ angular.module('Musplay.controllers')
             setAudioPosition: function (position) {
                 $timeout(function () {
                     $scope.mediaPos = position;
+                    $scope.mediaDur = appVarObj.my_media.getDuration();
+                    $scope.priceSlider.value = Math.round((position * 100) / $scope.mediaDur);
                 });
 
             }
@@ -113,4 +122,15 @@ angular.module('Musplay.controllers')
                     audioTools.pauseAudio();
             }
         }
+        $scope.priceSlider = {
+            floor: 0,
+            ceil: 100,
+            value: 0
+        };
+
+        $scope.$on("slideEnded", function () {
+            audioTools.pauseAudio();
+            appVarObj.my_media.seekTo($scope.priceSlider.value * 10 * $scope.mediaDur);
+            audioTools.playAudio();
+        })
     })

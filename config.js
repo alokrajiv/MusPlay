@@ -126,6 +126,7 @@ module.exports = function(config) {
    // config.vendor.js.push('.bower_components/mylib/mylib.js');
    
   config.vendor.js.push('./bower_components/onsenui/build/js/onsenui.js');
+  config.vendor.js.push('./nonstd_components/rzslider/js/rzslider.js');
   
   
   /**
@@ -151,6 +152,7 @@ module.exports = function(config) {
   config.vendor.css.push('./bower_components/onsenui/build/css/onsen-css-components-dark-theme.css');
   config.vendor.css.push('./bower_components/angular/angular-csp.css');
   config.vendor.css.push('./bower_components/onsenui/build/css/ionicons/css/ionicons.css');
+  config.vendor.css.push('./nonstd_components/rzslider/css/rzslider.css');
   config.vendor.fonts.push('./bower_components/onsenui/build/css/ionicons/fonts/ionicons.*');
 
   /**

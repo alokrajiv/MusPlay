@@ -34,7 +34,7 @@ angular.module('Musplay.services.fileOps', [])
                     fail(e);
                 })
                 function gotDir(dirEntry) {
-                    dirEntry.getFile(filename, {create: false}, function (fileEntry) {
+                    dirEntry.getFile(filename, { create: false }, function (fileEntry) {
                         console.log("REACHED HERE!!");
                         if (!fileEntry) {
                             fail(new Error("No File"))
@@ -48,7 +48,7 @@ angular.module('Musplay.services.fileOps', [])
                             reader.readAsText(file);
                         });
 
-                    }, function(e){
+                    }, function (e) {
                         fail(e)
                     });
                 }
